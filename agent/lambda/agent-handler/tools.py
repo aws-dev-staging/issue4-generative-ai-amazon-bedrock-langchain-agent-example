@@ -8,8 +8,6 @@ from langchain.llms.bedrock import Bedrock
 import requests
 import os
 
-kendra_index_id = os.environ['KENDRA_INDEX_ID']
-
 class Tools():
 
     def __init__(self) -> None:
@@ -26,6 +24,7 @@ class Tools():
     def build_chain(self):
         print("Building Chain")
         region = os.environ['AWS_REGION']
+        kendra_index_id = os.environ['KENDRA_INDEX_ID']
 
         llm = Bedrock(
             model_id="anthropic.claude-v2" # "anthropic.claude-instant-v1"
